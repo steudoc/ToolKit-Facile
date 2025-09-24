@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Convertitore Maiuscole/Minuscole Online</title>
+  <meta name="description" content="Converti testo online in maiuscolo, minuscolo o con iniziali maiuscole. Tool gratuito, rapido e facile da usare.">
+  <meta name="keywords" content="convertitore testo, maiuscole minuscole, capitalize, utility web, strumento online gratuito">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <h1>🔤 Convertitore Maiuscole/Minuscole</h1>
+    <nav><a href="index.html">⬅️ Torna alla Home</a></nav>
+  </header>
+
+  <main>
+    <textarea id="textInput" rows="6" placeholder="Inserisci il testo qui..."></textarea>
+    <div>
+      <button id="toUpper">MAIUSCOLO</button>
+      <button id="toLower">minuscolo</button>
+      <button id="toCapitalize">Capitalizzato</button>
+    </div>
+    <div id="resCase" class="result"></div>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <p>🔗 Altri strumenti utili:</p>
+      <ul>
+        <li><a href="index.html">🏠 Home</a></li>
+        <li><a href="percentuali.html">📊 Calcolatore Percentuali</a></li>
+        <li><a href="caseconv.html">🔤 Convertitore Maiuscole/Minuscole</a></li>
+        <li><a href="imc.html">⚖️ Calcolatore IMC</a></li>
+        <li><a href="sconto.html">💰 Calcolatore Sconti</a></li>
+        <li><a href="valuta.html">💱 Convertitore Valuta</a></li>
+        <li><a href="conta.html">📅 Contatore Giorni</a></li>
+      </ul>
+    </div>
+    <p>Usa i nostri strumenti gratuiti online per calcoli rapidi, conversioni e countdown!</p>
+    <p>© 2025 ToolKit Facile | Tutti i diritti riservati</p>
+  </footer>
+
+
+
+  <script>
+    const txt=document.getElementById('textInput');
+    document.getElementById('toUpper').onclick=()=>document.getElementById('resCase').textContent=txt.value.toUpperCase();
+    document.getElementById('toLower').onclick=()=>document.getElementById('resCase').textContent=txt.value.toLowerCase();
+    document.getElementById('toCapitalize').onclick=()=>{
+      const cap=txt.value.toLowerCase().replace(/\b\w/g,c=>c.toUpperCase());
+      document.getElementById('resCase').textContent=cap;
+    };
+  </script>
+</body>
+</html>

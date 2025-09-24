@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Calcolatore Sconti Online Gratis</title>
+  <meta name="description" content="Calcola facilmente il prezzo finale dopo uno sconto e quanto risparmi. Tool gratuito online, rapido e semplice da usare.">
+  <meta name="keywords" content="calcolatore sconto, prezzo finale, risparmio, percentuale sconto, tool online, utility web">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>💰 Calcolatore Sconti</h1>
+    <nav><a href="index.html">⬅️ Torna alla Home</a></nav>
+  </header>
+
+  <main>
+    <div class="row">
+      <div class="col">
+        <label>Prezzo originale (€)</label>
+        <input type="number" id="origPrice" placeholder="Es. 100">
+      </div>
+      <div class="col">
+        <label>Sconto (%)</label>
+        <input type="number" id="discount" placeholder="Es. 15">
+      </div>
+    </div>
+    <button id="calcDiscount">Calcola Prezzo Finale</button>
+    <button class="secondary" id="clearDiscount">Azzera</button>
+
+    <div id="resDiscount" class="result"></div>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <p>🔗 Altri strumenti utili:</p>
+      <ul>
+        <li><a href="index.html">🏠 Home</a></li>
+        <li><a href="percentuali.html">📊 Calcolatore Percentuali</a></li>
+        <li><a href="caseconv.html">🔤 Convertitore Maiuscole/Minuscole</a></li>
+        <li><a href="imc.html">⚖️ Calcolatore IMC</a></li>
+        <li><a href="sconto.html">💰 Calcolatore Sconti</a></li>
+        <li><a href="valuta.html">💱 Convertitore Valuta</a></li>
+        <li><a href="conta.html">📅 Contatore Giorni</a></li>
+      </ul>
+    </div>
+    <p>Usa i nostri strumenti gratuiti online per calcoli rapidi, conversioni e countdown!</p>
+    <p>© 2025 ToolKit Facile | Tutti i diritti riservati</p>
+  </footer>
+
+
+  <script>
+    const origPrice = document.getElementById('origPrice');
+    const discount = document.getElementById('discount');
+    const res = document.getElementById('resDiscount');
+
+    document.getElementById('calcDiscount').onclick = () => {
+      const price = parseFloat(origPrice.value);
+      const disc = parseFloat(discount.value);
+      if(isNaN(price) || isNaN(disc)){
+        res.textContent = "Inserisci valori validi!";
+        return;
+      }
+      const finalPrice = price * (1 - disc/100);
+      const saved = price - finalPrice;
+      res.innerHTML = `Prezzo finale: €${finalPrice.toFixed(2)} <br> Risparmi: €${saved.toFixed(2)}`;
+    };
+
+    document.getElementById('clearDiscount').onclick = () => {
+      origPrice.value = '';
+      discount.value = '';
+      res.textContent = '';
+    };
+  </script>
+</body>
+</html>

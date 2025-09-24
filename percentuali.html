@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Calcolatore Percentuali Online Gratis</title>
+  <meta name="description" content="Calcola facilmente qualsiasi percentuale online. Tool gratuito per trovare X% di un numero o percentuali tra valori.">
+  <meta name="keywords" content="calcolatore percentuali, percentuale online, calcolo rapido, tool gratuito, utility web">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <h1>📊 Calcolatore Percentuali</h1>
+    <nav><a href="index.html">⬅️ Torna alla Home</a></nav>
+  </header>
+
+  <main>
+    <p>Inserisci un numero e la percentuale da calcolare.</p>
+    <div class="row">
+      <div class="col">
+        <label>Numero</label>
+        <input type="number" id="num" placeholder="Es. 200">
+      </div>
+      <div class="col">
+        <label>Percentuale (%)</label>
+        <input type="number" id="perc" placeholder="Es. 15">
+      </div>
+    </div>
+    <button id="calcPerc">Calcola</button>
+    <div id="resPerc" class="result"></div>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <p>🔗 Altri strumenti utili:</p>
+      <ul>
+        <li><a href="index.html">🏠 Home</a></li>
+        <li><a href="percentuali.html">📊 Calcolatore Percentuali</a></li>
+        <li><a href="caseconv.html">🔤 Convertitore Maiuscole/Minuscole</a></li>
+        <li><a href="imc.html">⚖️ Calcolatore IMC</a></li>
+        <li><a href="sconto.html">💰 Calcolatore Sconti</a></li>
+        <li><a href="valuta.html">💱 Convertitore Valuta</a></li>
+        <li><a href="conta.html">📅 Contatore Giorni</a></li>
+      </ul>
+    </div>
+    <p>Usa i nostri strumenti gratuiti online per calcoli rapidi, conversioni e countdown!</p>
+    <p>© 2025 ToolKit Facile | Tutti i diritti riservati</p>
+  </footer>
+
+
+
+  <script>
+    document.getElementById('calcPerc').addEventListener('click', ()=>{
+      const n = parseFloat(document.getElementById('num').value);
+      const p = parseFloat(document.getElementById('perc').value);
+      if(isNaN(n)||isNaN(p)){
+        document.getElementById('resPerc').textContent="Inserisci valori validi!";
+        return;
+      }
+      const res=(n*p/100).toFixed(2);
+      document.getElementById('resPerc').textContent=`${p}% di ${n} = ${res}`;
+    });
+  </script>
+</body>
+</html>
